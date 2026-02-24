@@ -18,13 +18,16 @@ def build_outfit(filtered_df, temperature, weather_condition):
 
     # ---- Rain logic ----
     if weather_condition == "rainy":
-        required_types.append("raincoat")
-        required_types.append("rainboots")
+        required_types.append("OUT_03")
+        required_types.append("SHO_07")
 
         # optional: remove normal shoes
         if "shoes" in required_types:
             required_types.remove("shoes")
 
+    if weather_condition == "sunny":
+        optional_types.append("sunglasses")
+    
     # ---- Required categories ----
     for clothing_type in required_types:
         items_of_type = filtered_df[
