@@ -255,3 +255,5 @@ filtered_df = clothing_df  # After your filtering steps
 outfit = build_outfit(filtered_df, temperature, weather_condition)
 
 print(outfit)
+
+# COLLAGE 
