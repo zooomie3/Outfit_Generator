@@ -11,18 +11,20 @@ Our project is inspired by the difficult decisions we have to make each morning:
 To make it simple enough for us to code, we have set weather conditions, randomly generated for a year. This way, you can fill in a date, and it will connect that to the weather conditions of that date and it will use that to filter your clothes. We also have a few occasions that can be chosen from, with set clothing that is categorized based on these occasions. From the chosen weather/date and occasion, our generator will filter the clothes and generate an outfit, always including a top, bottoms and shoes, sometimes adding layers or accessoires.
 
 ## Features
-- Feature 1: the generator creates weather- and occasion-appropriate outfits
-- Feature 2: the code/generator is customizable: change clothes files to your own, change or add occasions, weighted randomness (for favorite items)
+- Feature 1: the outfit generator program creates weather- and occasion-appropriate outfits
+- Feature 2: the code is customizable: change clothes files to your own, change or add occasions, weighted randomness (for favorite items)
 - Feature 3: you can keep generating random outfits until you get one you want
 
 ## Installation
-pip, pandas, pillow, anything else?
+first you need pip (?)
+pip install pandas
+pip install pillow
 
 ### Prerequisites
 - Python 3.8 or higher
 - pip (Python package manager)
-- pandas installed
-- matplotlib? pillows
+- pandas installed?
+- matplotlib? pillows?
 
 ### Setup
 1. Clone the repository:
@@ -61,20 +63,22 @@ project-name/
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+This project does not need/have any licenses.
 
 ## Authors
-• Aida Hebberecht - GitHub Profile (LiskeJ???)
+• Aida Hebberecht - GitHub Profile
 • Zofia Mielech - GitHub Profile
 • Zofia Grabowska - GitHub Profile
-• Liske Janssen - GitHub Profile
+• Liske Janssen - LiskeJ
+
+## Credits
+• Aida Hebberecht created on ...
+• Zofia Mielech coded ...
+• Zofia Grabowska worked on ...
+• Liske Janssen focused on creating the occasion rules: a dictionary with the occasions and the corresponding clothing id's. Liske also coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
 
 ## Acknowledgments
-• Thanks to [Person/Project] for [contribution]
-• Inspired by [Project/Paper]
 • Special thanks to [Mentor/Teacher]
 
-## Contact
-For questions or feedback: - Email: your.email@example.com - GitHub Issues:
-Project Issues
 Last Updated: February 2026
 ---
