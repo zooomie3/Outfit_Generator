@@ -66,9 +66,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 This project does not need/have any licenses.
 
 ## Authors
-• Aida Hebberecht - GitHub Profile
-• Zofia Mielech - GitHub Profile
-• Zofia Grabowska - GitHub Profile
+• Aida Hebberecht - aidahebberecht-cloud
+• Zofia Mielech - zooomie3
+• Zofia Grabowska - sli-mak
 • Liske Janssen - LiskeJ
 
 ## Credits
