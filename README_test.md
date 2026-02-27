@@ -1,5 +1,5 @@
 # Outfit Generator
-The project allows to generate outfits based on what you have in your closet, the occassion, and the weather.
+The project allows to generate outfits based on what you have in your closet, the occassion, and the weather.  
 
 
 **Course**: PRA2031 - Python Programming Language  
@@ -23,18 +23,16 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 - Python 3.8 or higher
 - `pip` (Python package manager)
 
-### Code for installation
-- pip install pandas
-- pip install pillow
-
 ### Setup
 1. Clone the repository:
 ```bash
 git clone https://github.com/zooomie3/Fashionista.git
 cd Fashionista
+```
 2. Install dependencies:
-pip install -r requirements.txt
-3. (Add any additional setup steps)
+```bash
+pip install pandas Pillow
+```
 
 ### Usage
 Basic Example
@@ -49,17 +47,22 @@ Use Case 1: Title
 
 # Example code --- do the last step: generating the outfit (random clothes)
 Use Case 2: Title# Example code
-Project Structure
-project-name/
-￿￿￿ src/ # Source code
-￿ ￿￿￿ module1.py
-￿ ￿￿￿ module2.py
-￿￿￿ tests/ # Test files
-￿ ￿￿￿ test_module1.py
-￿￿￿ docs/ # Documentation
-￿￿￿ requirements.txt # Dependencies
-￿￿￿ README.md # This file
-￿￿￿ LICENSE # License file
+```
+
+## Project structure
+```text
+Fashionista/
+├── accessories/       # Image files for accessories
+├── bottoms/           # Image files for pants/skirts
+├── hats/              # Image files for hats
+├── shoes/             # Image files for shoes
+├── tops/              # Image files for shirts
+├── main.py            # Main application logic
+├── collage.py         # Visualizer and image layout engine
+├── random_outfit.py   # Test script for generating random outfits
+├── occasion_rules.py  # Dictionary mapping occasions to clothing IDs
+├── weather.csv        # Weather data for filtering
+└── README.md          # This file
 ```
 
 ## License
