@@ -80,7 +80,7 @@ Then the work can be divided into:
 
 Then, all the codes must come together and call on each other so that all the filtering and rules get taken into account for the outfit generator. The separate files can be merged into one.
 
-* This part has not been completely finished yet, however, the generated outfit is given. This way, you can look up the separate outfit images to find what it has put together. (For example, when the output gives you "TOP_03", you can find it in the folder "tops".) Visualisation coming soon!
+*This part has not been completely finished yet, however, the generated outfit is given. This way, you can look up the separate outfit images to find what it has put together. (For example, when the output gives you "TOP_03", you can find it in the folder "tops".) Visualisation coming soon!
 
 
 ## License
@@ -92,9 +92,4 @@ This project does not have any licenses.
 - Zofia Grabowska - sli-mak
 - Liske Janssen - LiskeJ
 
-## Credits
-- Aida Hebberecht: 
-- Zofia Mielech: 
-- Zofia Grabowska: 
-- Liske Janssen: Created the occasion rules: a dictionary with the occasions and the corresponding clothing id's, and coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
 
