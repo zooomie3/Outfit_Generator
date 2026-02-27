@@ -54,8 +54,11 @@ print(result)
 ```text
 Fashionista/
 ├── accessories/       # Image files for accessories
+├── bags/              # Image files for bags
 ├── bottoms/           # Image files for pants/skirts
 ├── hats/              # Image files for hats
+├── layers/            # Image files for layers
+├── outside/           # Image files for outwear
 ├── shoes/             # Image files for shoes
 ├── tops/              # Image files for shirts
 ├── main.py            # Main application logic
