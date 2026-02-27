@@ -35,20 +35,13 @@ pip install pandas Pillow
 ```
 
 ## Usage
-### Basic Example
-from your_module import YourClass
-#Create an instance
-obj = YourClass(param1, param2)
 
-#Use it
-result = obj.do_something()
-print(result)
+To generate an outfit, run the main program. The system will use the weather data (`weather.csv`) and your chosen occasion (`occasion_rules.py`) to filter your closet and output the perfect visual collage.
 
-### Common Use Cases
-### Use Case 1: Title
-#Example code 
-### Use Case 2: Title
-#Example code
+Open your terminal and run the main script. Follow any on-screen prompts to input the date and occasion:
+```bash
+python main.py
+```
 
 ## Project structure
 ```text
@@ -86,5 +79,3 @@ This project does not have any licenses.
 
 ## Acknowledgments
 - Special thanks to [Mentor/Teacher]
-
-Last Updated: February 2026
