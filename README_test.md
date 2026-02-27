@@ -1,12 +1,12 @@
-**Course**: [PRA2031] - [Python Programming Language]  
-
-**Semester**: [Spring] [2026]  
-
-**Team Members:** [Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen]  
-
-
 # Outfit Generator
-Our project generates an outfit for you based on what you have in your closet, the occassion, and the weather.
+The project allows to generate outfits based on what you have in your closet, the occassion, and the weather.
+
+
+**Course**: PRA2031 - Python Programming Language  
+
+**Semester**: Spring 2026  
+
+**Team Members:** Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen  
 
 ## Description
 Our project is inspired by the difficult decisions we have to make each morning: which outfit to wear? A problem almost every girl or woman (and some men as well) have to face each day. Nothing that fits together, and then it also depends on where you are going and what the weather is. This project solves this issue! Just fill in the occasion and the date/weather and this outfit generator will create an outfit for you based on the clothing in your closet!
@@ -21,7 +21,7 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 ## Installation
 ### Prerequisites
 - Python 3.8 or higher
-- pip (Python package manager)
+- `pip` (Python package manager)
 
 ### Code for installation
 - pip install pandas
@@ -72,10 +72,10 @@ This project does not have any licenses.
 - Liske Janssen - LiskeJ
 
 ## Credits
-- Aida Hebberecht created on ...
-- Zofia Mielech coded ...
-- Zofia Grabowska worked on ...
-- Liske Janssen: created the occasion rules: a dictionary with the occasions and the corresponding clothing id's, coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
+- Aida Hebberecht: 
+- Zofia Mielech: 
+- Zofia Grabowska: 
+- Liske Janssen: Created the occasion rules: a dictionary with the occasions and the corresponding clothing id's, and coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
 
 ## Acknowledgments
 - Special thanks to [Mentor/Teacher]
