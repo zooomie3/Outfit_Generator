@@ -24,8 +24,8 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 - pip (Python package manager)
 
 ### Code for installation
-pip install pandas
-pip install pillow
+- pip install pandas
+- pip install pillow
 
 ### Setup
 1. Clone the repository:
@@ -63,8 +63,7 @@ project-name/
 ```
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-This project does not need/have any licenses.
+This project does not have any licenses.
 
 ## Authors
 - Aida Hebberecht - aidahebberecht-cloud
