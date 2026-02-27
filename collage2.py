@@ -15,9 +15,8 @@ LAYOUT_MAP = {
 }
 
 def find_image(item_id, base_folder="."):
-    Searches your ENTIRE project folder (and all subfolders) 
-    to find the image that matches the item_id.
-    """
+    # Searches your ENTIRE project folder (and all subfolders) to find the image that matches the item_id.
+    
     item_id = str(item_id).strip().lower()
     
     # Walk through the current directory ('.') and all its subfolders
