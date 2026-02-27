@@ -1,17 +1,23 @@
 # Outfit Generator
-One-line description of what your project does.
+Our project generates an outfit for you based on what you have in your closet, the occassion, and the weather.
 
 ## Description
 A more detailed explanation of your project. What problem does it solve? Why did you build i
-You can include 2-3 paragraphs here.## Features
+You can include 2-3 paragraphs here. What problem does it solve? What does it do? Who is it for?
+
+## Features
 - Feature 1: Brief description
 - Feature 2: Brief description
 - Feature 3: Brief description
+
 ## Installation
+
 ### Prerequisites
 - Python 3.8 or higher
 - pip (Python package manager)
-- (List any other requirements)
+- pandas installed
+- matplot lib?
+
 ### Setup
 1. Clone the repository:
 ```bash
@@ -45,6 +51,7 @@ project-name/
 ￿￿￿ LICENSE # License file
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
 Authors
 • Your Name - GitHub Profile
 • Collaborator Name - GitHub Profile
