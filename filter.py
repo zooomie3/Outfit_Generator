@@ -6,7 +6,7 @@ def filter_by_occasion(clothing_df, occasion, occasion_dict):
     Returns a filtered DataFrame.
     """
     allowed_items = occasion_dict.get(occasion, [])
-    return clothing_df[clothing_df["item_name"].isin(allowed_items)].copy()
+    return clothing_df[clothing_df["item_id"].isin(allowed_items)].copy()
 
 
 def filter_by_temperature(clothing_df, temperature):
@@ -18,3 +18,4 @@ def filter_by_temperature(clothing_df, temperature):
         (clothing_df["min_temp"] <= temperature) &
         (clothing_df["max_temp"] >= temperature)
     ].copy()
+copy()
