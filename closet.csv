@@ -36,7 +36,7 @@ BOT_10,Bottom,Cargo Pants,Casual,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
 BOT_11,Bottom,Dress Pants,Formal,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
 BOT_12,Bottom,Flare Colorful Jeans,Festival,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
 SHO_01,Shoe,Flip Flops,Casual,"Hot, Mild",Sunny
-SHO_02,Shoe,Sandals,"Casual, Cute, Formal","Hot, Mild" ,Sunny
+SHO_02,Shoe,Sandals,"Casual, Cute, Formal","Hot, Mild", Sunny
 SHO_03,Shoe,Sneakers,Casual,"Hot, Warm, Mild","Sunny, Cloudy"
 SHO_04,Shoe,Heels,"Formal, Cute","Hot, Warm, Mild","Sunny, Cloudy"
 SHO_05,Shoe,Mary Janes,"Formal, Cute","Hot, Warm, Mild","Sunny, Cloudy"
@@ -61,4 +61,5 @@ ACC_01,Accessory,Sunglasses,"Casual, Cute","Hot, Warm",Sunny
 ACC_02,Accessory,Scarf,"Casual, Cute, Formal",Cold,"Rainy, Snow"
 ACC_03,Accessory,Gloves,"Casual, Cute, Formal, Athletic",Cold,"Rainy, Snow, Cloudy"
 ACC_04,Accessory,Tie,"Formal, Cute","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
+
 
