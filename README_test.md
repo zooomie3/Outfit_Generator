@@ -66,19 +66,19 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 This project does not need/have any licenses.
 
 ## Authors
-• Aida Hebberecht - aidahebberecht-cloud
-• Zofia Mielech - zooomie3
-• Zofia Grabowska - sli-mak
-• Liske Janssen - LiskeJ
+- Aida Hebberecht - aidahebberecht-cloud
+- Zofia Mielech - zooomie3
+- Zofia Grabowska - sli-mak
+- Liske Janssen - LiskeJ
 
 ## Credits
-• Aida Hebberecht created on ...
-• Zofia Mielech coded ...
-• Zofia Grabowska worked on ...
-• Liske Janssen focused on creating the occasion rules: a dictionary with the occasions and the corresponding clothing id's. Liske also coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
+- Aida Hebberecht created on ...
+- Zofia Mielech coded ...
+- Zofia Grabowska worked on ...
+- Liske Janssen focused on creating the occasion rules: a dictionary with the occasions and the corresponding clothing id's. Liske also coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
 
 ## Acknowledgments
-• Special thanks to [Mentor/Teacher]
+- Special thanks to [Mentor/Teacher]
 
 Last Updated: February 2026
 ---
