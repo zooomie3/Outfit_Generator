@@ -19,15 +19,13 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 - Feature 3: you can keep generating random outfits until you get one you want
 
 ## Installation
-first you need pip (?)
-pip install pandas
-pip install pillow
-
 ### Prerequisites
 - Python 3.8 or higher
 - pip (Python package manager)
-- pandas installed?
-- matplotlib? pillows?
+
+### Code for installation
+pip install pandas
+pip install pillow
 
 ### Setup
 1. Clone the repository:
