@@ -6,7 +6,7 @@ from typing import Optional
 import pandas as pd
 
 
-# Canonical required outfit "slots" (aligned with your item_id prefixes)
+# Required outfit "slots" (aligned with item_id prefixes)
 REQUIRED_POSITIONS = ["TOP", "BOT", "SHO", "BAG"]
 OPTIONAL_POSITIONS_DEFAULT = ["OUT", "LAY", "ACC", "HAT"]
 
@@ -43,7 +43,7 @@ def _ensure_position_column(df: pd.DataFrame) -> pd.DataFrame:
 
     df.loc[needs_infer, "position"] = inferred
 
-    # Normalize all positions to uppercase
+    # Normalizing all positions to uppercase
     df["position"] = df["position"].apply(_normalize_str)
     POSITION_MAP = {
     "TOP": "TOP",
@@ -92,7 +92,6 @@ def build_outfit(
     Weather logic:
         - If cold (<= 10°C): require OUT
         - If rainy: require OUT (if any) and prefer SHO items that mention rain
-          (If your filtering already enforced weather_condition, this is a light nudge only.)
     """
     if filtered_df is None or len(filtered_df) == 0:
         raise ValueError("build_outfit received an empty filtered_df")
@@ -105,26 +104,26 @@ def build_outfit(
     required_positions = list(REQUIRED_POSITIONS)
     optional_positions = list(OPTIONAL_POSITIONS_DEFAULT)
 
-    # --- Temperature logic ---
+    # Temperature logic
     if temp_celsius <= 10:
         if "OUT" not in required_positions:
             required_positions.append("OUT")
 
-    # --- Rain logic (align with your standardized weather_condition usage) ---
+    # Rain logic
     if "RAIN" in wc:
         # require outerwear if any exist
         if "OUT" not in required_positions:
             required_positions.append("OUT")
 
-    # --- Build required slots ---
+    # Build required slots
     outfit_parts: list[pd.DataFrame] = []
     for pos in required_positions:
-        # If the dataset has no such position at all, fail clearly.
+        # If the dataset doesnt have such a position, fail
         outfit_parts.append(_pick_one(df, pos, rng))
 
-    # --- Optional slots ---
+    # Optional slots
     if include_optional:
-        # Avoid duplicating required positions
+        # Avoiding duplicating required positions
         optional_positions = [p for p in optional_positions if p not in required_positions]
 
         for pos in optional_positions:
@@ -138,7 +137,7 @@ def build_outfit(
 
     outfit_df = pd.concat(outfit_parts, ignore_index=True)
 
-    # Optional: if duplicates happen (same item_id selected twice), drop them.
+    # Optional: if duplicating happens (same item_id selected twice), drop them.
     if "item_id" in outfit_df.columns:
         outfit_df = outfit_df.drop_duplicates(subset=["item_id"], keep="first").reset_index(drop=True)
 
@@ -146,10 +145,10 @@ def build_outfit(
 
 def print_outfit(outfit_df: pd.DataFrame) -> None:
     if outfit_df is None or outfit_df.empty:
-        print("⚠️ Outfit is empty.")
+        print("No outfit could be generated")
         return
 
-    print("\n✨ GENERATED OUTFIT ✨")
+    print("\n GENERATED OUTFIT")
     print("-" * 40)
 
     for _, row in outfit_df.iterrows():
@@ -163,19 +162,19 @@ def print_outfit(outfit_df: pd.DataFrame) -> None:
     print("-" * 40)
 
 if __name__ == "__main__":
-    # ⚠️ This block is ONLY for isolated testing.
-    # It will NOT run when imported into main.py.
+    # Only isolated testing
+    # It will not run when imported into main.py
 
     import pandas as pd
 
-    # Minimal fake test data (aligned with your real structure)
+    # Minimal fake test data (aligned with the real structure)
     test_data = pd.DataFrame([
         {"item_id": "TOP_01", "position": "TOP", "category": "T-Shirt", "style": "Casual"},
         {"item_id": "BOT_02", "position": "BOT", "category": "Jeans", "style": "Casual"},
-        {"item_id": "SHO_03", "position": "SHO", "category": "Sneakers", "style": "Sporty"},
+        {"item_id": "SHO_03", "position": "SHO", "category": "Sneakers", "style": "Gym"},
         {"item_id": "BAG_01", "position": "BAG", "category": "Tote", "style": "Casual"},
         {"item_id": "OUT_01", "position": "OUT", "category": "Jacket", "style": "Casual"},
-        {"item_id": "ACC_01", "position": "ACC", "category": "Necklace", "style": "Cute"},
+        {"item_id": "ACC_01", "position": "ACC", "category": "Necklace", "style": "Family dinner"},
     ])
 
     outfit = build_outfit(
@@ -188,14 +187,14 @@ if __name__ == "__main__":
     print_outfit(outfit)
 
 if __name__ == "__main__":
-    print("✅ Running outfit_engineer.py directly")
+    print("Running outfit_engineer.py directly")
 
     import pandas as pd
 
     test_df = pd.DataFrame([
         {"item_id": "TOP_01", "position": "TOP", "category": "T-Shirt", "style": "Casual"},
         {"item_id": "BOT_01", "position": "BOT", "category": "Jeans", "style": "Casual"},
-        {"item_id": "SHO_01", "position": "SHO", "category": "Sneakers", "style": "Sporty"},
+        {"item_id": "SHO_01", "position": "SHO", "category": "Sneakers", "style": "Gym"},
         {"item_id": "BAG_01", "position": "BAG", "category": "Tote", "style": "Casual"},
         {"item_id": "OUT_01", "position": "OUT", "category": "Jacket", "style": "Casual"},
     ])
