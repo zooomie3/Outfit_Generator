@@ -1,5 +1,3 @@
-Outfit Generator 
-
 **Course**: [PRA2031]- [Python Programming Language]
 **Semester**: [Spring] [2026]
 **Team Members**: [Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen]
@@ -8,9 +6,6 @@ Outfit Generator
 Our project generates an outfit for you based on what you have in your closet, the occassion, and the weather.
 
 ## Description
-A more detailed explanation of your project. What problem does it solve? Why did you build it?
-You can include 2-3 paragraphs here. What problem does it solve? What does it do? Who is it for?
-
 Our project is inspired by the difficult decisions we have to make each morning: which outfit to wear? A problem almost every girl or woman (and some men as well) have to face each day. Nothing that fits together, and then it also depends on where you are going and what the weather is. This project solves this issue! Just fill in the occasion and the date/weather and this outfit generator will create an outfit for you based on the clothing in your closet!
 
 To make it simple enough for us to code, we have set weather conditions, randomly generated for a year. This way, you can fill in a date, and it will connect that to the weather conditions of that date and it will use that to filter your clothes. We also have a few occasions that can be chosen from, with set clothing that is categorized based on these occasions. From the chosen weather/date and occasion, our generator will filter the clothes and generate an outfit, always including a top, bottoms and shoes, sometimes adding layers or accessoires.
