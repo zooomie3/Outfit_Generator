@@ -34,20 +34,21 @@ cd Fashionista
 pip install pandas Pillow
 ```
 
-### Usage
-Basic Example
+## Usage
+### Basic Example
 from your_module import YourClass
-# Create an instance
+#Create an instance
 obj = YourClass(param1, param2)
-# Use it
+
+#Use it
 result = obj.do_something()
 print(result)
-Common Use Cases
-Use Case 1: Title
 
-# Example code --- do the last step: generating the outfit (random clothes)
-Use Case 2: Title# Example code
-```
+### Common Use Cases
+### Use Case 1: Title
+#Example code 
+### Use Case 2: Title
+#Example code
 
 ## Project structure
 ```text
@@ -84,4 +85,3 @@ This project does not have any licenses.
 - Special thanks to [Mentor/Teacher]
 
 Last Updated: February 2026
----
