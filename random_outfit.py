@@ -3,13 +3,12 @@ import random
 import pandas as pd
 
 # Import the visualizer you already built!
-from collage2 import create_collage
+from collage import create_collage
 
 def scan_wardrobe(base_folder="."):
-    """
-    Scans all folders and subfolders to find every clothing image you have,
-    and sorts them into a dictionary by type.
-    """
+   
+    # Scans all folders and subfolders to find every clothing image you have, and sorts them into a dictionary by type.
+
     wardrobe = {'TOP': [], 'BOT': [], 'SHO': [], 'OUT': [], 'ACC': [], 'HAT': [], 'BAG': [], 'LAY': []}
     
     for root, dirs, files in os.walk(base_folder):
