@@ -1,8 +1,9 @@
-**Course**: [PRA2031] - [Python Programming Language]
+**Course**: [PRA2031] - [Python Programming Language]  
 
-**Semester**: [Spring] [2026]
+**Semester**: [Spring] [2026]  
 
-**Team Members**: [Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen]
+**Team Members:** [Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen]  
+
 
 # Outfit Generator
 Our project generates an outfit for you based on what you have in your closet, the occassion, and the weather.
