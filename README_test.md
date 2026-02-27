@@ -30,8 +30,8 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 ### Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/project-name.git
-cd project-name
+git clone https://github.com/zooomie3/Fashionista.git
+cd Fashionista
 2. Install dependencies:
 pip install -r requirements.txt
 3. (Add any additional setup steps)
