@@ -9,7 +9,7 @@ The project allows to generate outfits based on what you have in your closet, th
 **Team Members:** Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen  
 
 ## Description
-Our project is inspired by the difficult decisions we have to make each morning: which outfit to wear? A problem almost every girl or woman (and some men as well) have to face each day. Nothing that fits together, and then it also depends on where you are going and what the weather is. This project solves this issue! Just fill in the occasion and the date/weather and this outfit generator will create an outfit for you based on the clothing in your closet!
+Our project is inspired by the difficult decisions we have to make each morning: which outfit to wear? A problem almost every woman (and some men as well) have to face each day. Nothing in your closet that fits together, and then your outfit also depends on where you are going and what the weather is. This project solves this issue! Just fill in the occasion and the weather conditions and this outfit generator will create an outfit for you based on the clothing in your closet!
 
 To make it simple enough for us to code, we have set weather conditions, randomly generated for a year. This way, you can fill in a date, and it will connect that to the weather conditions of that date and it will use that to filter your clothes. We also have a few occasions that can be chosen from, with set clothing that is categorized based on these occasions. From the chosen weather/date and occasion, our generator will filter the clothes and generate an outfit, always including a top, bottoms and shoes, sometimes adding layers or accessoires.
 
@@ -31,7 +31,11 @@ cd Fashionista
 ```
 2. Install dependencies:
 ```bash
+pip install pandas
+# on mac:
 pip install pandas Pillow
+# on windows:
+pip install Pillow
 ```
 
 ## Usage
@@ -61,6 +65,23 @@ Fashionista/
 ├── weather.csv        # Weather data for filtering
 └── README.md          # This file
 ```
+## Project division
+If you are working with multiple people, the coding work can be divided.
+First, you need to 'create' a closet: import files of clothing and label them: give them an id like "TOP_1".
+Besides, weather must be generated, or if licenced, you can use real time weather (but this is more complex)
+Then, you need to decide on which clothes fit in which occasion and make a dictionary of this data.
+After all the data is ready, the coding can begin.
+
+Then the work can be divided into:
+- Data management: loading and cleaning data, handling missing values
+- Filtering: the available clothing gets filtered by occasion and temperature
+- Outfit logic: making sure the outfit is complete (required items: 1 top, 1 bottoms, 1 shoes), but also has optional items. Makes random selection and adapts required items based on the weather.
+- Visualisation: loads the images and creates a collage based on the outfit the generator determined.*
+
+Then, all the codes must come together and call on each other so that all the filtering and rules get taken into account for the outfit generator. The separate files can be merged into one.
+
+* This part has not been completely finished yet, however, the generated outfit is given. This way, you can look up the separate outfit images to find what it has put together. (For example, when the output gives you "TOP_03", you can find it in the folder "tops".) Visualisation coming soon!
+
 
 ## License
 This project does not have any licenses.
@@ -77,5 +98,3 @@ This project does not have any licenses.
 - Zofia Grabowska: 
 - Liske Janssen: Created the occasion rules: a dictionary with the occasions and the corresponding clothing id's, and coded the logic of weather conditions: when outerwear is needed or excluded, sunglasses and rain clothing.
 
-## Acknowledgments
-- Special thanks to [Mentor/Teacher]
