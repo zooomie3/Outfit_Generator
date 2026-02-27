@@ -76,11 +76,11 @@ Then the work can be divided into:
 - Data management: loading and cleaning data, handling missing values
 - Filtering: the available clothing gets filtered by occasion and temperature
 - Outfit logic: making sure the outfit is complete (required items: 1 top, 1 bottoms, 1 shoes), but also has optional items. Makes random selection and adapts required items based on the weather.
-- Visualisation: loads the images and creates a collage based on the outfit the generator determined.*
+- Visualisation: loads the images and creates a collage based on the outfit the generator determined.
 
 Then, all the codes must come together and call on each other so that all the filtering and rules get taken into account for the outfit generator. The separate files can be merged into one.
 
-*This part has not been completely finished yet, however, the generated outfit is given. This way, you can look up the separate outfit images to find what it has put together. (For example, when the output gives you "TOP_03", you can find it in the folder "tops".) Visualisation coming soon!
+This part has not been completely finished yet, however, the generated outfit is given. This way, you can look up the separate outfit images to find what it has put together. (For example, when the output gives you "TOP_03", you can find it in the folder "tops".) Visualisation coming soon!
 
 
 ## License
