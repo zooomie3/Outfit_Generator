@@ -1,5 +1,7 @@
-**Course**: [PRA2031]- [Python Programming Language]
-/section **Semester**: [Spring] [2026]
+**Course**: [PRA2031] - [Python Programming Language]
+
+**Semester**: [Spring] [2026]
+
 **Team Members**: [Aida Hebberecht, Zofia Mielech, Zofia Grabowska, Liske Janssen]
 
 # Outfit Generator
