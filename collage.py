@@ -14,15 +14,15 @@ CANVAS_BG = (245, 245, 245, 255)
 LAYOUT_MAP = {
     "HAT": {"pos": (250, 10), "max_size": 260},
 
-    "TOP": {"pos": (180, 150), "max_size": 510},
+    "TOP": {"pos": (180, 120), "max_size": 420},
     "LAY": {"pos": (150, 120), "max_size": 540},
-    "OUT": {"pos": (120, 90), "max_size": 560},
+    "OUT": {"pos": (90, 90), "max_size": 560},
 
-    "BOT": {"pos": (200, 470), "max_size": 540},
-    "SHO": {"pos": (200, 870), "max_size": 390},
+    "BOT": {"pos": (200, 470), "max_size": 420},
+    "SHO": {"pos": (200, 800), "max_size": 520},
 
     "ACC": {"pos": (540, 320), "max_size": 210},
-    "BAG": {"pos": (510, 540), "max_size": 300},
+    "BAG": {"pos": (510, 540), "max_size": 420},
 }
 
 # Paste in this order so top stays visible the most
