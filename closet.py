@@ -1,11 +1,12 @@
-#importing all closet data 
-import pandas as pd
-from pathlib import Path
+from dataset import DataSet
 
-class Closet:
-    def __init__(self, csv_path: str | Path):
-        self.items = pd.read_csv(Path(csv_path))
+
+class Closet(DataSet):
+    def __init__(self, file_path):
+        super().__init__(file_path) # file_path inhereted from DataSet parent class
 
     def show_items(self):
-        print(self.items)
+        print(self.get_data())
+
+from closet import Closet
 
