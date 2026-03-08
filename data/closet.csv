@@ -1,64 +1,64 @@
-item_id,position,type,style,weather_temp,weather_condition
-TOP_01,Top,Bikini Top,Beachy,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_02,Top,Tank Top,"Casual, Athletic","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_03,Top,Tank Top,Cute,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_04,Top,Tank Top,Formal,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_05,Top,Tank Top,Beach,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_06,Top,Funky Top,Festival,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_07,Top,Shirt,Casual,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow"
-TOP_08,Top,Shirt,Cute,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow"
-TOP_09,Top,Shirt,Formal,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow"
-TOP_10,Top,Long Sleeve,Casual,"Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_11,Top,Long Sleeve,Cute,"Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-TOP_12,Top,Long Sleeve,Formal,"Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-LAY_01,Layer,Cover Up,"Beachy, Festival","Warm, Mild","Sunny, Cloudy, Rainy, Snow"
-LAY_02,Layer,Cardigan,"Casual, Cute, Formal",Mild,"Sunny, Cloudy, Rainy, Snow"
-LAY_03,Layer,Sweater,"Casual, Cute",Mild,"Sunny, Cloudy, Rainy, Snow"
-LAY_04,Layer,Hoodie,"Casual, Athletic",Mild,"Sunny, Cloudy, Rainy, Snow"
-LAY_05,Layer,Zip Up,"Casual, Cute",Mild,"Sunny, Cloudy, Rainy, Snow"
-LAY_06,Layer,Blazer,Formal ,"Mild, Cold","Cloudy, Rainy, Snow"
-OUT_01,Outer,Puffer,Casual,Cold,"Cloudy, Rainy, Snow"
-OUT_02,Outer,Fur Jacket,"Cute, Festival",Cold,"Sunny, Cloudy, Rainy, Snow"
-OUT_03,Outer,Raincoat,"Casual, Festival",Mild,Rainy
-OUT_04,Outer,Peacoat,"Cute, Formal",Cold,"Sunny, Cloudy, Rainy, Snow"
-OUT_05,Outer,Denim Jacket,"Casual, Cute",Mild,"Sunny, Cloudy"
-OUT_06,Outer,Leather Jacket,"Casual, Cute, Festival","Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BOT_01,Bottom,Bikini Bottom,Beachy,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow"
-BOT_02,Bottom,Skirt,"Cute, Festival","Hot, Warm","Sunny, Cloudy"
-BOT_03,Bottom,Skirt,Formal,"Hot, Warm, Mild","Sunny, Cloudy"
-BOT_04,Bottom,Skirt,"Casual, Cute","Hot, Warm, Mild","Sunny, Cloudy"
-BOT_05,Bottom,Shorts,Athletic,"Hot, Warm, Mild","Sunny, Cloudy"
-BOT_06,Bottom,Shorts,Casual,"Hot, Warm, Mild","Sunny, Cloudy"
-BOT_07,Bottom,Leggings,Athletic,"Warm, Mild","Sunny, Cloudy, Rainy, Snow"
-BOT_08,Bottom,Sweatpants,Athletic,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BOT_09,Bottom,Jeans,"Casual, Cute","Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BOT_10,Bottom,Cargo Pants,Casual,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BOT_11,Bottom,Dress Pants,Formal,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BOT_12,Bottom,Flare Colorful Jeans,Festival,"Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-SHO_01,Shoe,Flip Flops,Casual,"Hot, Mild, Warm","Sunny, Cloudy"
-SHO_02,Shoe,Sandals,"Casual, Cute, Formal","Hot, Warm, Mild" ,"Sunny, Cloudy"
-SHO_03,Shoe,Sneakers,Casual,"Hot, Warm, Mild","Sunny, Cloudy"
-SHO_04,Shoe,Heels,"Formal, Cute","Hot, Warm, Mild","Sunny, Cloudy"
-SHO_05,Shoe,Mary Janes,"Formal, Cute","Hot, Warm, Mild","Sunny, Cloudy"
-SHO_06,Shoe,Boots,"Casual, Cute, Formal","Mild, Cold","Cloudy,Snow"
-SHO_07,Shoe,Rain Boots,"Casual, Cute, Formal","Hot, Warm, Mild, Cold",Rainy
-SHO_08,Shoe,Trainers,"Casual, Athletic","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-SHO_09,Shoe,Cowboy Boots,Festival,"Hot, Warm, Mild","Sunny, Cloudy, Rainy"
-SHO_10,Shoe,Elegant Biker Boots ,"Casual, Cute, Formal, Festival","Mild, Cold ","Cloudy, Rainy, Snow"
-BAG_01,Bag,Small Purse,"Casual, Cute","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BAG_02,Bag,Backpack,"Casual, Athletic","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BAG_03,Bag,Tote Bag,"Casual, Beachy","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BAG_04,Bag,Formal Bag,Formal ,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BAG_05,Bag,Beach Bag,Beachy ,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-BAG_06,Bag,Fanny Pack,Festival,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
-HAT_01,Hat,Cap,Casual,"Hot, Warm",Sunny
-HAT_02,Hat,Sunhat,"Casual, Cute","Hot, Warm",Sunny
-HAT_03,Hat,Beanie,"Casual, Athletic",Cold,"Rainy, Snow, Cloudy"
-HAT_04,Hat,Ushanka,Cute ,Cold,"Rainy, Snow, Cloudy"
-HAT_05,Hat,Bandana,Festival,"Hot, Warm, Mild ","Sunny, Cloudy, Rainy"
-HAT_06,Hat,Cowboy Hat,Festival,"Hot, Warm, Mild ","Sunny, Cloudy, Rainy"
-ACC_01,Accessory,Sunglasses,"Casual, Cute","Hot, Warm",Sunny
-ACC_02,Accessory,Scarf,"Casual, Cute, Formal",Cold,"Rainy, Snow"
-ACC_03,Accessory,Gloves,"Casual, Cute, Formal, Athletic",Cold,"Rainy, Snow, Cloudy"
-ACC_04,Accessory,Tie,"Formal, Cute","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow"
+item_id,position,type,style,weather_temp,weather_condition, image_path
+TOP_01,Top,Bikini Top,Beachy,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_01
+TOP_02,Top,Tank Top,"Casual, Athletic","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_02
+TOP_03,Top,Tank Top,Cute,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_03
+TOP_04,Top,Tank Top,Formal,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_04
+TOP_05,Top,Tank Top,Beach,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_05
+TOP_06,Top,Funky Top,Festival,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_06
+TOP_07,Top,Shirt,Casual,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow", images/TOP_07
+TOP_08,Top,Shirt,Cute,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow", images/TOP_08
+TOP_09,Top,Shirt,Formal,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow", images/TOP_09
+TOP_10,Top,Long Sleeve,Casual,"Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_10
+TOP_11,Top,Long Sleeve,Cute,"Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_11
+TOP_12,Top,Long Sleeve,Formal,"Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/TOP_12
+LAY_01,Layer,Cover Up,"Beachy, Festival","Warm, Mild","Sunny, Cloudy, Rainy, Snow", images/LAY_01
+LAY_02,Layer,Cardigan,"Casual, Cute, Formal",Mild,"Sunny, Cloudy, Rainy, Snow", images/LAY_02
+LAY_03,Layer,Sweater,"Casual, Cute",Mild,"Sunny, Cloudy, Rainy, Snow", images/LAY_03
+LAY_04,Layer,Hoodie,"Casual, Athletic",Mild,"Sunny, Cloudy, Rainy, Snow", images/LAY_04
+LAY_05,Layer,Zip Up,"Casual, Cute",Mild,"Sunny, Cloudy, Rainy, Snow", images/LAY_05
+LAY_06,Layer,Blazer,Formal ,"Mild, Cold","Cloudy, Rainy, Snow", images/LAY_06
+OUT_01,Outer,Puffer,Casual,Cold,"Cloudy, Rainy, Snow", images/OUT_01
+OUT_02,Outer,Fur Jacket,"Cute, Festival",Cold,"Sunny, Cloudy, Rainy, Snow", images/OUT_02
+OUT_03,Outer,Raincoat,"Casual, Festival",Mild,Rainy, images/OUT_03
+OUT_04,Outer,Peacoat,"Cute, Formal",Cold,"Sunny, Cloudy, Rainy, Snow", images/OUT_04
+OUT_05,Outer,Denim Jacket,"Casual, Cute",Mild,"Sunny, Cloudy", images/OUT_05
+OUT_06,Outer,Leather Jacket,"Casual, Cute, Festival","Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/OUT_06
+BOT_01,Bottom,Bikini Bottom,Beachy,"Hot, Warm, Mild","Sunny, Cloudy, Rainy, Snow", images/BOT_01
+BOT_02,Bottom,Skirt,"Cute, Festival","Hot, Warm","Sunny, Cloudy", images/BOT_02
+BOT_03,Bottom,Skirt,Formal,"Hot, Warm, Mild","Sunny, Cloudy", images/BOT_03
+BOT_04,Bottom,Skirt,"Casual, Cute","Hot, Warm, Mild","Sunny, Cloudy", images/BOT_04
+BOT_05,Bottom,Shorts,Athletic,"Hot, Warm, Mild","Sunny, Cloudy", images/BOT_05
+BOT_06,Bottom,Shorts,Casual,"Hot, Warm, Mild","Sunny, Cloudy", images/BOT_06
+BOT_07,Bottom,Leggings,Athletic,"Warm, Mild","Sunny, Cloudy, Rainy, Snow", images/BOT_07
+BOT_08,Bottom,Sweatpants,Athletic,"Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BOT_08
+BOT_09,Bottom,Jeans,"Casual, Cute","Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BOT_09
+BOT_10,Bottom,Cargo Pants,Casual,"Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BOT_10
+BOT_11,Bottom,Dress Pants,Formal,"Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BOT_11
+BOT_12,Bottom,Flare Colorful Jeans,Festival,"Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BOT_12
+SHO_01,Shoe,Flip Flops,Casual,"Hot, Mild, Warm","Sunny, Cloudy", images/SHO_01
+SHO_02,Shoe,Sandals,"Casual, Cute, Formal","Hot, Warm, Mild" ,"Sunny, Cloudy", images/SHO_02
+SHO_03,Shoe,Sneakers,Casual,"Hot, Warm, Mild","Sunny, Cloudy", images/SHO_03
+SHO_04,Shoe,Heels,"Formal, Cute","Hot, Warm, Mild","Sunny, Cloudy", images/SHO_04
+SHO_05,Shoe,Mary Janes,"Formal, Cute","Hot, Warm, Mild","Sunny, Cloudy", images/SHO_05
+SHO_06,Shoe,Boots,"Casual, Cute, Formal","Mild, Cold","Cloudy,Snow", images/SHO_06
+SHO_07,Shoe,Rain Boots,"Casual, Cute, Formal","Hot, Warm, Mild, Cold",Rainy, images/SHO_07
+SHO_08,Shoe,Trainers,"Casual, Athletic","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/SHO_08
+SHO_09,Shoe,Cowboy Boots,Festival,"Hot, Warm, Mild","Sunny, Cloudy, Rainy", images/SHO_09
+SHO_10,Shoe,Elegant Biker Boots ,"Casual, Cute, Formal, Festival","Mild, Cold ","Cloudy, Rainy, Snow", images/SHO_10
+BAG_01,Bag,Small Purse,"Casual, Cute","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BAG_01
+BAG_02,Bag,Backpack,"Casual, Athletic","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BAG_02
+BAG_03,Bag,Tote Bag,"Casual, Beachy","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BAG_03
+BAG_04,Bag,Formal Bag,Formal ,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BAG_04
+BAG_05,Bag,Beach Bag,Beachy ,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BAG_05
+BAG_06,Bag,Fanny Pack,Festival,"Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/BAG_06
+HAT_01,Hat,Cap,Casual,"Hot, Warm",Sunny, images/HAT_01
+HAT_02,Hat,Sunhat,"Casual, Cute","Hot, Warm",Sunny, images/HAT_02
+HAT_03,Hat,Beanie,"Casual, Athletic",Cold,"Rainy, Snow, Cloudy", images/HAT_03
+HAT_04,Hat,Ushanka,Cute ,Cold,"Rainy, Snow, Cloudy", images/HAT_04
+HAT_05,Hat,Bandana,Festival,"Hot, Warm, Mild ","Sunny, Cloudy, Rainy", images/HAT_05
+HAT_06,Hat,Cowboy Hat,Festival,"Hot, Warm, Mild ","Sunny, Cloudy, Rainy", images/HAT_06
+ACC_01,Accessory,Sunglasses,"Casual, Cute","Hot, Warm",Sunny, images/ACC_01
+ACC_02,Accessory,Scarf,"Casual, Cute, Formal",Cold,"Rainy, Snow", images/ACC_02
+ACC_03,Accessory,Gloves,"Casual, Cute, Formal, Athletic",Cold,"Rainy, Snow, Cloudy", images/ACC_03
+ACC_04,Accessory,Tie,"Formal, Cute","Hot, Warm, Mild, Cold","Sunny, Cloudy, Rainy, Snow", images/ACC_04
 
