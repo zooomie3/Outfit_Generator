@@ -49,15 +49,6 @@ def _prompt(prompt: str, default: str | None = None) -> str:
 def main() -> None:
     """
     Run the Fashionista outfit generator.
-
-    Workflow:
-    1. Ask the user for a date and occasion
-    2. Load closet and weather data using the new classes
-    3. Get temperature category and weather condition for that date
-    4. Filter closet items by occasion, temperature, and weather
-    5. Build an outfit from the filtered items
-    6. Print the selected outfit
-    7. Create a collage only if image_path exists in the final outfit
     """
     print("\nFashionista Outfit Generator")
 
@@ -101,12 +92,7 @@ def main() -> None:
     print("Temperature category:", temp_category)
     print("Weather condition:", condition or "(missing)")
 
-    df = closet.filter_for_occasion(occasion)
-    df = closet.filter_for_temperature(temp_category)
-
-    # Apply filters step by step on the already filtered dataframe
-    df = closet.filter_for_occasion(occasion)
-    df = df.copy()
+    df = closet.filter_for_occasion(occasion).copy()
 
     if temp_category:
         df = df[
@@ -138,7 +124,11 @@ def main() -> None:
         seed=42,
     )
 
-    item_ids = outfit_df["item_id"].astype(str).tolist() if "item_id" in outfit_df.columns else []
+    item_ids = (
+        outfit_df["item_id"].astype(str).tolist()
+        if "item_id" in outfit_df.columns
+        else []
+    )
 
     print("\nSelected item_ids:")
     print(item_ids)
@@ -149,7 +139,7 @@ def main() -> None:
         output_file = create_collage(outfit_df, output_filename="final_outfit.png")
         print(f"\nCollage saved as: {output_file}")
     else:
-        print("\nNo collage created because the final outfit does not contain an 'image_path' column yet.")
+        print("\nNo collage created because there is no 'image_path' column in the final outfit.")
 
 
 if __name__ == "__main__":
@@ -158,3 +148,4 @@ if __name__ == "__main__":
     except Exception as e:
         print("\nError:", e)
         sys.exit(1)
+        
