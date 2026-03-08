@@ -80,3 +80,4 @@ class Closet(DataSet):
         """
         df = self.get_data()
         return filter_by_weather_condition(df, weather_condition)
+    
