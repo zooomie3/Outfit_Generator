@@ -15,10 +15,10 @@ LAYOUT_MAP = {
     "HAT": {"pos": (250, 10), "max_size": 260},
 
     "TOP": {"pos": (180, 120), "max_size": 420},
-    "LAY": {"pos": (150, 120), "max_size": 540},
+    "LAY": {"pos": (100, 120), "max_size": 540},
     "OUT": {"pos": (90, 90), "max_size": 560},
 
-    "BOT": {"pos": (200, 470), "max_size": 420},
+    "BOT": {"pos": (200, 470), "max_size": 600},
     "SHO": {"pos": (200, 800), "max_size": 520},
 
     "ACC": {"pos": (540, 320), "max_size": 210},
