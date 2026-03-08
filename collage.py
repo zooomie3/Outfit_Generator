@@ -12,17 +12,17 @@ CANVAS_BG = (245, 245, 245, 255)
 
 # Body-style layout
 LAYOUT_MAP = {
-    "HAT": {"pos": (250, 10), "max_size": 260},
+    "HAT": {"pos": (260, 20), "max_size": 220},
 
-    "TOP": {"pos": (180, 120), "max_size": 420},
-    "LAY": {"pos": (100, 120), "max_size": 540},
-    "OUT": {"pos": (90, 90), "max_size": 560},
+    "TOP": {"pos": (180, 120), "max_size": 360},
+    "LAY": {"pos": (130, 100), "max_size": 400},
+    "OUT": {"pos": (90, 80), "max_size": 440},
 
-    "BOT": {"pos": (200, 470), "max_size": 600},
-    "SHO": {"pos": (200, 800), "max_size": 520},
+    "BOT": {"pos": (210, 500), "max_size": 340},
+    "SHO": {"pos": (220, 930), "max_size": 300},
 
-    "ACC": {"pos": (540, 320), "max_size": 210},
-    "BAG": {"pos": (510, 540), "max_size": 420},
+    "ACC": {"pos": (560, 300), "max_size": 170},
+    "BAG": {"pos": (530, 540), "max_size": 240},
 }
 
 # Paste in this order so top stays visible the most
