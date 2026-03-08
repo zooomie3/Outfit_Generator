@@ -4,6 +4,7 @@ from dataset import DataSet
 class Weather(DataSet):
     """
     Child class representing the weather dataset.
+
     This class inherits from DataSet, so it has the ability to:
     - store the CSV file path
     - load the CSV into a pandas DataFrame
@@ -13,21 +14,18 @@ class Weather(DataSet):
     Weather adds weather-specific behavior:
     - extra cleaning for the weather dataset
     - looking up weather information for a specific date
-    - converting Celsius temperature into a temperature category
+    - converting temperature in celcius into a temperature category
     """
 
     def __init__(self, file_path):
-        super().__init__(file_path)
+        super().__init__(file_path) 
 
     def load_data(self):
         """
         Loads and cleans the weather dataset.
-        First calls the parent class load_data() method to:
-        - read the CSV file
-        - standardize column names
-
-        Then it applies weather-specific cleaning:
-        - converts the date column into real date objects
+        This method first calls the parent class load_data() method to read the CSV file and standardize the column names 
+        Also applies weather-specific cleaning:
+        - converts date column into real date objects
         - removes rows with invalid dates
         - converts temp_celsius into numeric values
         - removes rows with invalid temperatures
@@ -35,31 +33,32 @@ class Weather(DataSet):
 
         Returns: pandas.DataFrame: The cleaned weather dataset.
         """
-        df = super().load_data()
+        df = super().load_data() # inherets from parent class
 
+        # converting date strings into real python date objects
         if "date" in df.columns:
-            df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.date
-            df = df.dropna(subset=["date"])
+            df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.date # removes invalid dates
+            df = df.dropna(subset=["date"]) # removes rows were date is missing
 
         if "temp_celsius" in df.columns:
-            df["temp_celsius"] = pd.to_numeric(df["temp_celsius"], errors="coerce")
-            df = df.dropna(subset=["temp_celsius"])
+            df["temp_celsius"] = pd.to_numeric(df["temp_celsius"], errors="coerce") # converst temps to numeric
+            df = df.dropna(subset=["temp_celsius"]) # removes rows where temp couldnt be converted
 
         if "date" in df.columns:
-            df = df.drop_duplicates(subset=["date"], keep="first")
+            df = df.drop_duplicates(subset=["date"], keep="first") # remove duplicate dates
 
-        self.df = df.reset_index(drop=True)
+        self.df = df.reset_index(drop=True) # index reset after cleaning rows
         return self.df
 
     def show_weather(self):
         """
-        Prints the weather dataset. This is mainly useful for testing and checking whether the file is loaded correctly.
+        Prints the weather dataset; mainly useful for testing and checking whether the file is loaded correctly or not.
         """
-        print(self.get_data())
+        print(self.get_data()) # from parent class
 
     def classify_temperature(self, temp_c):
         """
-        Converts a numeric Celsius temperature into a temperature category.
+        Converts a numeric temp in celsius to a temperature category.
         Categories:
             - below 10  -> COLD
             - 10 to <20 -> MILD
@@ -79,17 +78,17 @@ class Weather(DataSet):
 
     def get_temperature_for_date(self, date_str):
         """
-        Returns the temperature category for a given date.
+        Returns the temperature category of a specific date.
 
-        The method first tries to find an exact date match, and ff that date is not found, it uses the nearest previous date.
-        If there is still no earlier date available, it falls back to the first row in the dataset.
+        The method first tries to find an exact date match, and if that date isn't found, it uses the nearest previous date.
+        If there is still no earlier date available, it falls back to the first row.
 
-        Parameters: date_str (str): Date string, in YYYY-MM-DD format.
+        Parameters: date_str (str)- date string in YYYY-MM-DD format.
 
-        Returns: str: Temperature category for that date (COLD, MILD, WARM, or HOT).
+        Returns string temp category for that date (COLD, MILD, WARM, or HOT).
         """
-        df = self.get_data()
-        target_date = pd.to_datetime(date_str).date()
+        df = self.get_data() # retrieve cleaned dataset
+        target_date = pd.to_datetime(date_str).date() # convert string into date object
 
         # Try exact match first
         match = df[df["date"] == target_date]
@@ -97,7 +96,7 @@ class Weather(DataSet):
             temp_c = float(match.iloc[0]["temp_celsius"])
             return self.classify_temperature(temp_c)
 
-        # If exact date is missing, use the nearest previous date
+        # If date is missing, use the nearest previous date
         previous = df[df["date"] < target_date]
         if not previous.empty:
             temp_c = float(previous.iloc[-1]["temp_celsius"])
@@ -109,15 +108,15 @@ class Weather(DataSet):
 
     def get_weather_for_date(self, date_str):
         """
-        Returns the numeric temperature and weather condition for a given date.
-        The method first tries to find an exact date match, and if that date is not found, it uses the nearest previous date.
-        If there is still no earlier date available, it falls back to the first row in the dataset.
+        Returns the numeric temperature and weather condition for a certain date.
+        This method first tries to find an exact date match, and if that date is not found, it uses the nearest previous date.
+        If there is still no earlier date available, it falls back to the first row.
 
         Parameters: date_str (str): Date string, in YYYY-MM-DD format.
 
         Returns: tuple[float, str]containing:
-            - temp_celsius (float)
-             - condition (str), normalized to uppercase
+            - temp_celsius: float
+             - condition: str, normalized to uppercase
         """
         df = self.get_data()
         target_date = pd.to_datetime(date_str).date()
@@ -130,7 +129,7 @@ class Weather(DataSet):
             condition = str(row.get("condition", "")).strip().upper()
             return temp_c, condition
 
-        # If exact date is missing, use nearest previous date
+        # If date is missing, use nearest previous date
         previous = df[df["date"] < target_date]
         if not previous.empty:
             row = previous.iloc[-1]
@@ -138,7 +137,7 @@ class Weather(DataSet):
             condition = str(row.get("condition", "")).strip().upper()
             return temp_c, condition
 
-        # Final fallback: use first row
+        # Final fallback is to use first row
         row = df.iloc[0]
         temp_c = float(row["temp_celsius"])
         condition = str(row.get("condition", "")).strip().upper()
