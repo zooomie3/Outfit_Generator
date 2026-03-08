@@ -85,7 +85,7 @@ def main() -> None:
     temp_category = weather.get_temperature_for_date(date_str)
     temp_c, condition = weather.get_weather_for_date(date_str)
 
-    print("\n--- Input Summary ---")
+    print("\n---- ⋆˚꩜｡ Your input summary ⋆˚꩜｡ ----")
     print("Date:", date_str)
     print("Occasion:", occasion)
     print("Temperature:", f"{temp_c:.1f}°C")
@@ -126,10 +126,10 @@ def main() -> None:
         else []
     )
 
-    print("\nSelected item_ids:")
-    print(item_ids)
-
-    print_outfit(outfit_df)
+    print("\n .✦ ݁˖ Your outfit is ready! .✦ ݁˖")
+    print()
+    print(" ⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹ See your outfit in final_outfit.png ⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹ !")
+    print()
 
     if "image_path" in outfit_df.columns:
         output_file = create_collage(outfit_df, output_filename="final_outfit.png")
