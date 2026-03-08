@@ -6,7 +6,7 @@ import sys
 
 from closet import Closet
 from weather import Weather
-from outfit_engineer import build_outfit, print_outfit
+from outfit_engineer import build_outfit
 from collage import create_collage
 
 
@@ -14,13 +14,13 @@ def _parse_date(date_str: str):
     """
     Accept YYYY-MM-DD or DD-MM-YYYY and return a datetime.date object.
     """
-    s = str(date_str).strip()
-    for fmt in ("%Y-%m-%d", "%d-%m-%Y"):
+    s = str(date_str).strip() # makes sure input is text and removes whitespac
+    for fmt in ("%Y-%m-%d", "%d-%m-%Y"): # loops through possible formats
         try:
-            return datetime.strptime(s, fmt).date()
+            return datetime.strptime(s, fmt).date() # try to read user usimg current fromat fmt, and return as date if it works
         except ValueError:
             pass
-    raise ValueError("Date format must be YYYY-MM-DD or DD-MM-YYYY")
+    raise ValueError("Date format must be YYYY-MM-DD or DD-MM-YYYY") # raise value error if dat doesnt match format
 
 
 def _find_first_existing(candidates: list[str | Path]) -> Path:
@@ -32,7 +32,7 @@ def _find_first_existing(candidates: list[str | Path]) -> Path:
         if p.exists():
             return p
     raise FileNotFoundError(
-        "Could not find file. Tried: " + ", ".join(str(Path(c)) for c in candidates)
+        "Could not find file. Tried: " + ", ".join(str(Path(c)) for c in candidates) 
     )
 
 
