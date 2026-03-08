@@ -112,13 +112,9 @@ def main() -> None:
             .str.contains(str(condition).strip().upper(), regex=False)
         ].copy()
 
-    if df.empty:
-        print("\nNo outfit can be generated after filtering.")
-        print("Try another date or occasion.")
-        return
-
     outfit_df = build_outfit(
         filtered_df=df,
+        full_df=closet.get_data(),
         temp_celsius=temp_c,
         weather_condition=condition,
         seed=42,
