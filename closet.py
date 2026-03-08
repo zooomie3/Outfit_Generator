@@ -19,46 +19,41 @@ class Closet(DataSet):
 
     Closet adds clothing-specific behavior:
     - extra cleaning for the closet dataset
-    - filtering items by occasion
-    - filtering items by temperature category
-    - filtering items by weather condition
+    - filtering items by occasion from imported method in filters.py
+    - filtering items by temperature category from imported method in filters.py
+    - filtering items by weather condition from imported method in filters.py
     """
     def __init__(self, file_path):
-        super().__init__(file_path)
+        super().__init__(file_path) # inhereted from parent class DataSet
 
     def load_data(self):
         """
         Loads and cleans the closet dataset.
-        This method first calls the parent class load_data() method to read the CSV file and standardize column names.
-
-        It also applies closet-specific cleaning:
-        - removes unnamed columns
-        - removes fully empty rows
-        - strips extra whitespace from text columns
-
-        Returns: pandas.DataFrame: The cleaned closet dataset.
+        This method first calls the parent class load_data() method to read the CSV file and standardize the column names 
+        Also applies closet-specific cleaning (remove unnamed columns, remove empty rows, and strips extra whitespace from text columns)
+        Returns: pandas.DataFrame as the cleaned closet dataset.
         """
-        df = super().load_data()
+        df = super().load_data() # calling parent class method
 
-        df = df.loc[:, ~df.columns.str.contains("^unnamed", case=False)]
-        df = df.dropna(how="all")
+        df = df.loc[:, ~df.columns.str.contains("^unnamed", case=False)] # removes columns that ar unamed
+        df = df.dropna(how="all") # removes rows where columns are empty
 
-        for col in df.columns:
-            if df[col].dtype == "object":
-                df[col] = df[col].astype(str).str.strip()
+        for col in df.columns: # loop through every column
+            if df[col].dtype == "object": # if it contains text
+                df[col] = df[col].astype(str).str.strip() # strip whitespaces
 
-        self.df = df.reset_index(drop=True)
+        self.df = df.reset_index(drop=True) # reset row numbering
         return self.df
 
     def show_items(self):
         """Prints closet dataset"""
-        print(self.get_data())
+        print(self.get_data()) # from parent class
 
     def filter_for_occasion(self, occasion):
         """
         Filters closet items that are suitable for a given occasion.
         Parameters: occasion- the occasion chosen by the user
-        Returns: pandas.DataFrame: filtered DataFrame containing only items that match the imported occasion rules.
+        Returns pandas.DataFrame as a filtered DataFrame containing only items that match the imported occasion rules.
         """
         df = self.get_data()
         return filter_by_occasion(df, occasion, OCCASION_RULES)
@@ -67,7 +62,7 @@ class Closet(DataSet):
         """
         Filters closet items by temperature category.
         Parameters: temp_category- such as COLD, MILD, WARM, or HOT.
-        Returns: pandas.DataFrame: filtered DataFrame containing only items suitable for that temperature category.
+        Returns pandas.DataFrame as a filtered DataFrame containing only items suitable for that temperature category.
         """
         df = self.get_data()
         return filter_by_temperature_category(df, temp_category)
@@ -76,7 +71,7 @@ class Closet(DataSet):
         """
         Filters closet items by weather condition.
         Parameters: weather_condition- such as RAIN, SUNNY, WINDY, etc.
-        Returns: pandas.DataFrame: filtered DataFrame containing only items suitable for that weather condition.
+        Returns pandas.DataFrame as a filtered DataFrame containing only items suitable for that weather condition.
         """
         df = self.get_data()
         return filter_by_weather_condition(df, weather_condition)
