@@ -6,7 +6,8 @@ class DataSet:
     """
     Creating a parent class that stores the CSV file path and loads the CSV into a dataframe.
     Both closet and weather data are coming from CSVs, read by pandas, and stored as DataFrames so this logic makes sense for the parent class.
-    Closet and weather will inheret load_data(), get_data(), file_path, and df
+    Also both CSVs need column standardizing for safety.
+    Closet and weather will inheret load_data(), get_data(), _standardize_columns, file_path, and df
     """
     def __init__(self, file_path):
         self.file_path = Path(file_path) # stores file location inside the object
