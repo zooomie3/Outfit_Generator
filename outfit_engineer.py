@@ -6,27 +6,21 @@ from typing import Optional
 import pandas as pd
 
 
-# Determining the "required" and the "optional" categories of clothing.
-# The requied categories need to be always present in an outfit while the optional categories can be included or not based on the weather and temperature conditions. 
+# Required outfit slots
 REQUIRED_POSITIONS = ["TOP", "BOT", "SHO", "BAG"]
 OPTIONAL_POSITIONS_DEFAULT = ["OUT", "LAY", "ACC", "HAT"]
 
-# Cleaning the dataset
-
-# Ensuring everything is in uppercase and without whitespace (ensuring consistency). 
+# Converts value into clean uppercase string
 def _normalize_str(x) -> str:
     return str(x).strip().upper()
 
-
 def _ensure_position_column(df: pd.DataFrame) -> pd.DataFrame:
     """
-    This ensures a 'position' column exists in the DataFrame.
-    If the category is missing/empty, infer from item_id prefix (TOP_01 -> TOP).
+    Ensures a 'position' column exists.
+    If missing/empty, infer from item_id prefix (TOP_01 -> TOP).
     """
-    # Working on a copy in order to avoid changing/modyfing the orginial dataframe. 
     df = df.copy()
-    
-    # Columnns that have no position will be filled with empty string. 
+
     if "position" not in df.columns:
         df["position"] = ""
 
@@ -77,10 +71,9 @@ def _ensure_position_column(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _pick_one(pool: pd.DataFrame, position: str, rng: random.Random) -> pd.DataFrame:
-    """Picks one row from a pool for a given position which then returns a single-row DataFrame. Raises ValueError if no items for that position."""
+    """Picks one row from a pool for a given position."""
     position_pool = pool[pool["position"] == position]
 
-    # If there are no items for the specific postion, raise a ValueError. 
     if position_pool.empty:
         raise ValueError(f"No items available for position: {position}")
 
@@ -100,23 +93,19 @@ def _pick_required_with_fallback(
     2. if none, fall back to the full closet
     3. if still none, raise an error
     """
-    # Trying to pick from the filtered closet first. 
     filtered_pool = filtered_df[filtered_df["position"] == position]
 
-    # For the filtered item exists, pick one from the filtered closet.
     if not filtered_pool.empty:
         idx = rng.choice(filtered_pool.index.tolist())
         return filtered_pool.loc[[idx]]
 
     full_pool = full_df[full_df["position"] == position]
 
-    # If no filtered item exists but there are items in the full closet, print a warning and pick one from the full closet as a fallback.
     if not full_pool.empty:
         print(f"Warning: no filtered items for {position}, using fallback from full closet.")
         idx = rng.choice(full_pool.index.tolist())
         return full_pool.loc[[idx]]
 
-    # If no items exist at all for the required position, raise an error because we can't build a valid outfit.
     raise ValueError(f"No items exist at all for required position: {position}")
 
 
@@ -131,10 +120,10 @@ def build_outfit(
     seed: Optional[int] = None,
 ) -> pd.DataFrame:
     """
-    Builds an outfit based on the filtered and full DataFrames, temperature, and weather conditions.
+    Build an outfit from a filtered clothing dataframe, with fallback to full_df for required positions.
     Required positions:
         TOP, BOT, SHO, BAG
-    Weather condition, logic for OUT items:
+    Weather logic:
         - If cold (<= 10°C): require OUT
         - If rainy: require OUT
     """
@@ -144,21 +133,16 @@ def build_outfit(
     if full_df is None or len(full_df) == 0:
         raise ValueError("build_outfit received an empty full_df")
 
-    # Creating a random generator (the seed allows for reproducibility of the results).
     rng = random.Random(seed)
 
-    # Ensuring the position column is cleaned and standardized in both DataFrames. 
-    # If the filtered_df is empty or None, an empty DataFrame with the same columns as full_df will be created to avoid errors in the outfit building process.
     filtered_df = _ensure_position_column(filtered_df if filtered_df is not None else pd.DataFrame(columns=full_df.columns))
     full_df = _ensure_position_column(full_df)
 
-    # Normalizing the weather condition string for consistency. 
     wc = _normalize_str(weather_condition)
 
     required_positions = list(REQUIRED_POSITIONS)
     optional_positions = list(OPTIONAL_POSITIONS_DEFAULT)
 
-    # Setting up the requirement for OUT position for when the temperature is equal or under 10 Celsius degrees or when it is raining. 
     if temp_celsius <= 10:
         if "OUT" not in required_positions:
             required_positions.append("OUT")
@@ -169,13 +153,12 @@ def build_outfit(
 
     outfit_parts: list[pd.DataFrame] = []
 
-    # For each required position, try to poick from the filtered closet first if not possible fallnack to full_df. 
+    # Required positions: use fallback
     for pos in required_positions:
         outfit_parts.append(_pick_required_with_fallback(filtered_df, full_df, pos, rng))
 
-    # For optional positions only choose from the filtered closet (filtered_df). 
+    # Optional positions: only choose from filtered items
     if include_optional:
-        # Removing any optional positions that are already in the required positions (removes duplication). 
         optional_positions = [p for p in optional_positions if p not in required_positions]
 
         for pos in optional_positions:
@@ -187,14 +170,10 @@ def build_outfit(
                 idx = rng.choice(pool.index.tolist())
                 outfit_parts.append(pool.loc[[idx]])
 
-    # Combining all the selected parts into a single DataFrame which represents the final outfit. 
     outfit_df = pd.concat(outfit_parts, ignore_index=True)
 
-    # Removing any possible duplicates (sefety check). 
     if "item_id" in outfit_df.columns:
         outfit_df = outfit_df.drop_duplicates(subset=["item_id"], keep="first").reset_index(drop=True)
 
-    # Returning the final outfit DataFrame. 
     return outfit_df
-
 
