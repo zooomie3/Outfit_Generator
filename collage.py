@@ -21,7 +21,7 @@ LAYOUT_MAP = {
     "BOT": {"pos": (225, 380), "max_size": 580},
     "SHO": {"pos": (220, 760), "max_size": 220},
 
-    "ACC": {"pos": (85, 575), "max_size": 180},
+    "ACC": {"pos": (85, 575), "max_size": 250},
     "BAG": {"pos": (465, 490), "max_size": 240},
 }
 
