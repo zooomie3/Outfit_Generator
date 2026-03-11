@@ -52,7 +52,7 @@ def main() -> None:
     """
     print("\nFashionista Outfit Generator")
 
-    date_input = _prompt("°❀⋆.ೃ࿔*･Please enter a date! °❀⋆.ೃ࿔*:･")
+    date_input = _prompt("°❀⋆.ೃ࿔*･Please enter a date! (YYYY-MM-DD or DD-MM-YYYY°❀⋆.ೃ࿔*:･")
     occasion = _prompt(
         " °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔* Please enter your occasion (casual, gym, beach, night out, family dinner, formal, festival) °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･",
     )
