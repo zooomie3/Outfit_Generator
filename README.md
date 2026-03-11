@@ -47,6 +47,14 @@ Open your terminal and run the main script. Follow any on-screen prompts to inpu
 python main.py
 ```
 
+### Example Usage
+Below are screenshots of what your terminal should look like and what the output should be when running/after you have run the program. You can fill in your own date and occasion. In the example, the date is 06-05-2026 and the occasion is night out.
+
+<img width="1261" height="412" alt="image" src="https://github.com/user-attachments/assets/3026fde5-9fbe-40d9-83aa-bdc2111ea264" />
+
+<img width="750" height="1150" alt="image" src="https://github.com/user-attachments/assets/6befcfa4-fda9-44e3-8b0c-9ac728bc1078" />
+
+
 ## Project structure
 ```text
 Fashionista/
@@ -80,9 +88,6 @@ Then the work can be divided into:
 
 Then, all the codes must come together and call on each other so that all the filtering and rules get taken into account for the outfit generator. The separate files can be merged into one.
 
-This part has not been completely finished yet, however, the generated outfit is given. This way, you can look up the separate outfit images to find what it has put together. (For example, when the output gives you "TOP_03", you can find it in the folder "tops".) Visualisation coming soon!
-
-
 ## License
 This project does not have any licenses.
 
@@ -92,4 +97,4 @@ This project does not have any licenses.
 - Zofia Grabowska - sli-mak
 - Liske Janssen - LiskeJ
 
-## Last updated: February 2026
+## Last updated: March 2026
