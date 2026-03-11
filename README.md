@@ -27,7 +27,6 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 1. Clone the repository:
 ```bash
 git clone https://github.com/zooomie3/Outfit_Generator.git
-cd Fashionista
 ```
 2. Install dependencies:
 ```bash
@@ -46,6 +45,7 @@ Open your terminal and run the main script. Follow any on-screen prompts to inpu
 ```bash
 python main.py
 ```
+After you have typed in your input, the program will give you an input summary and announce that the outfit is ready. You can find the outfit under the file 'final_outfit.png'.
 
 ### Example Usage
 Below are screenshots of what your terminal should look like and what the output should be when running/after you have run the program. You can fill in your own date and occasion. In the example, the date is 06-05-2026 and the occasion is night out.
