@@ -26,7 +26,7 @@ To make it simple enough for us to code, we have set weather conditions, randoml
 ### Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/zooomie3/Fashionista.git
+git clone https://github.com/zooomie3/Outfit_Generator.git
 cd Fashionista
 ```
 2. Install dependencies:
