@@ -4,45 +4,42 @@ from pathlib import Path
 from datetime import datetime
 import sys
 
-import pandas as pd
-
-from data_loader import (
-    load_weather,
-    load_clothing,
-    get_temperature_for_date,
-    get_weather_for_date,
-)
-from filters import (
-    filter_by_occasion,
-    filter_by_temperature_category,
-    filter_by_weather_condition
-)
-from occasion_rules import OCCASION_RULES
-from outfit_engineer import build_outfit, print_outfit
+from closet import Closet
+from weather import Weather
+from outfit_engineer import build_outfit
+from collage import create_collage
 
 
 def _parse_date(date_str: str):
-    """Accept YYYY-MM-DD or DD-MM-YYYY. Returns datetime.date."""
-    s = str(date_str).strip()
-    for fmt in ("%Y-%m-%d", "%d-%m-%Y"):
+    """
+    Accept YYYY-MM-DD or DD-MM-YYYY and return a datetime.date object.
+    """
+    s = str(date_str).strip() # makes sure input is text and removes whitespac
+    for fmt in ("%Y-%m-%d", "%d-%m-%Y"): # loops through possible formats
         try:
-            return datetime.strptime(s, fmt).date()
+            return datetime.strptime(s, fmt).date() # try to read user usimg current fromat fmt, and return as date if it works
         except ValueError:
             pass
-    raise ValueError("Date format must be YYYY-MM-DD (recommended) or DD-MM-YYYY")
+    raise ValueError("Date format must be YYYY-MM-DD or DD-MM-YYYY") # raise value error if dat doesnt match format
 
 
 def _find_first_existing(candidates: list[str | Path]) -> Path:
+    """
+    Return the first file path that exists from a list of candidates.
+    """
     for c in candidates:
         p = Path(c)
         if p.exists():
             return p
     raise FileNotFoundError(
-        "Could not find file. Tried: " + ", ".join(str(Path(c)) for c in candidates)
+        "Could not find file. Tried: " + ", ".join(str(Path(c)) for c in candidates) 
     )
 
 
 def _prompt(prompt: str, default: str | None = None) -> str:
+    """
+    Prompt the user for input. If they press enter, use the default value.
+    """
     if default:
         text = input(f"{prompt} [{default}]: ").strip()
         return text or default
@@ -50,19 +47,19 @@ def _prompt(prompt: str, default: str | None = None) -> str:
 
 
 def main() -> None:
-    print("\n Fashionista Outfit Generator")
+    """
+    Run the Fashionista outfit generator.
+    """
+    print("\nFashionista Outfit Generator")
 
-    # User input
-    date_input = _prompt("Please enter a date", "year-month-day")
+    date_input = _prompt("°❀⋆.ೃ࿔*･Please enter a date! °❀⋆.ೃ࿔*:･")
     occasion = _prompt(
-        "Please enter an occasion (e.g., casual, gym, beach, night out, family dinner, formal, festival)",
-        "casual",
+        " °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔* Please enter your occasion (casual, gym, beach, night out, family dinner, formal, festival) °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･",
     )
 
     date_obj = _parse_date(date_input)
-    date_str = date_obj.isoformat()  # aligns with get_weather_for_date/get_temperature_for_date
+    date_str = date_obj.isoformat()
 
-    # Find data files 
     weather_path = _find_first_existing(
         [
             "Fashionista/weather.csv",
@@ -71,6 +68,7 @@ def main() -> None:
             "Weather.csv",
         ]
     )
+
     closet_path = _find_first_existing(
         [
             "Fashionista/closet.csv",
@@ -80,60 +78,69 @@ def main() -> None:
         ]
     )
 
-    # Load data 
-    weather_df = load_weather(weather_path)
-    clothing_df = load_clothing(closet_path)
+    weather = Weather(weather_path)
+    closet = Closet(closet_path)
 
-    # Get weather conditions for the specified date 
-    temp_category = get_temperature_for_date(date_str, weather_df)
-    temp_c, condition = get_weather_for_date(date_str, weather_df)
+    temp_category = weather.get_temperature_for_date(date_str)
+    temp_c, condition = weather.get_weather_for_date(date_str)
 
+    print("\n---- ⋆˚꩜｡ Your input summary ⋆˚꩜｡ ----")
     print("Date:", date_str)
-    print("Temp:", f"{temp_c:.1f}°C", f"({temp_category})")
-    print("Condition:", condition or "(missing)")
     print("Occasion:", occasion)
+    print("Temperature:", f"{temp_c:.1f}°C")
+    print("Temperature category:", temp_category)
+    print("Weather condition:", condition or "(missing)")
 
-    # Apply filters
-    df = clothing_df
+    df = closet.filter_for_occasion(occasion).copy()
 
-    # Occasion filter 
-    df = filter_by_occasion(df, occasion, OCCASION_RULES)
-
-    # Temperature filter 
-    df = filter_by_temperature_category(df, temp_category)
-
+    if temp_category:
+        df = df[
+            df["weather_temp"]
+            .fillna("")
+            .astype(str)
+            .str.upper()
+            .str.contains(str(temp_category).strip().upper(), regex=False)
+        ].copy()
 
     if condition:
-        df = filter_by_weather_condition(df, condition)
+        df = df[
+            df["weather_condition"]
+            .fillna("")
+            .astype(str)
+            .str.upper()
+            .str.contains(str(condition).strip().upper(), regex=False)
+        ].copy()
 
-    if df.empty:
-        print("No outfit can be generated after the filtering.")
-        print("Please try another day or occasion as there are no clothes in your closet that match the criteria.")
-        return
-
-    # Build outfit 
     outfit_df = build_outfit(
         filtered_df=df,
+        full_df=closet.get_data(),
         temp_celsius=temp_c,
         weather_condition=condition,
-        seed=42,  
+        seed=42,
     )
 
-    # Output: list of item_ids 
-    item_ids = outfit_df["item_id"].astype(str).tolist() if "item_id" in outfit_df.columns else []
+    item_ids = (
+        outfit_df["item_id"].astype(str).tolist()
+        if "item_id" in outfit_df.columns
+        else []
+    )
 
-    print("Selected item_ids:")
-    print(item_ids)
+    print("\n .✦ ݁˖ Your outfit is ready! .✦ ݁˖")
+    print()
+    print(" ⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹ See your outfit in final_outfit.png ⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹ !")
+    print()
 
-    # Optional pretty print
-    print_outfit(outfit_df)
+    if "image_path" in outfit_df.columns:
+        output_file = create_collage(outfit_df, output_filename="final_outfit.png")
+        print(f"\nCollage saved as: {output_file}")
+    else:
+        print("\nNo collage created because there is no 'image_path' column in the final outfit.")
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print("\n Error:", e)
+        print("\nError:", e)
         sys.exit(1)
-
         

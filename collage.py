@@ -1,57 +1,114 @@
-import os
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Optional
+
 import pandas as pd
 from PIL import Image
 
-# Mapping of each clothing category to a specific position and determining its max size on the collage canvas
+
+CANVAS_SIZE = (750, 1150)
+CANVAS_BG = (245, 245, 245, 255)
+
+# Body-style layout
 LAYOUT_MAP = {
-    'TOP': {'pos': (200, 100), 'max_size': 350}, 
-    'OUT': {'pos': (450, 100), 'max_size': 400}, 
-    'BOT': {'pos': (200, 500), 'max_size': 350}, 
-    'SHO': {'pos': (250, 900), 'max_size': 250}, 
-    'ACC': {'pos': (50, 50),   'max_size': 200}   
+    "HAT": {"pos": (55, 20), "max_size": 210},
+
+    "TOP": {"pos": (220, 80), "max_size": 360},
+    "LAY": {"pos": (70, 50), "max_size": 380},
+    "OUT": {"pos": (420, 120), "max_size": 450},
+
+    "BOT": {"pos": (225, 380), "max_size": 580},
+    "SHO": {"pos": (220, 760), "max_size": 220},
+
+    "ACC": {"pos": (85, 575), "max_size": 250},
+    "BAG": {"pos": (465, 490), "max_size": 300},
 }
 
-def load_and_resize(image_path, max_size):
-    """Loads a PNG image and resizes it proportionally while keeping transparency."""
-    if not os.path.exists(image_path):
-        print(f"! Missing image: {image_path}")
-        return None
-        
-    try:
-        img = Image.open(image_path).convert("RGBA")
-        img.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
-        return img
-    except Exception as e:
-        print(f"! Error loading {image_path}: {e}")
+# Paste in this order so top stays visible the most
+PASTE_ORDER = ["HAT", "OUT", "LAY", "TOP", "BOT", "SHO", "ACC", "BAG"]
+
+
+def _resolve_image_path(image_path: str) -> Path:
+    image_path = str(image_path).strip()
+    path = Path(image_path)
+
+    if path.is_absolute():
+        return path
+
+    project_dir = Path(__file__).resolve().parent
+    return project_dir / path
+
+
+def _resize_keep_ratio(img: Image.Image, max_size: int) -> Image.Image:
+    img = img.copy()
+    img.thumbnail((max_size, max_size))
+    return img
+
+
+def _load_item_image(img_path: Path, max_size: int) -> Image.Image:
+    img = Image.open(img_path).convert("RGBA")
+    img = _resize_keep_ratio(img, max_size)
+    return img
+
+
+def create_collage(
+    outfit_df: pd.DataFrame,
+    output_filename: str = "final_outfit.png",
+) -> Optional[str]:
+    required_cols = {"position", "image_path"}
+    missing = required_cols - set(outfit_df.columns)
+    if missing:
+        raise KeyError(f"create_collage is missing required columns: {missing}")
+
+    canvas = Image.new("RGBA", CANVAS_SIZE, CANVAS_BG)
+    pasted_any = False
+
+    # Normalize positions first
+    outfit_df = outfit_df.copy()
+    outfit_df["position"] = outfit_df["position"].astype(str).str.strip().str.upper()
+
+    # Paste items in visual order
+    for position in PASTE_ORDER:
+        matching_rows = outfit_df[outfit_df["position"] == position]
+
+        if matching_rows.empty:
+            continue
+
+        # In case there is more than one item for a position, just take first
+        row = matching_rows.iloc[0]
+        raw_image_path = row["image_path"]
+
+        if pd.isna(raw_image_path):
+            print(f"Skipping {position}: image_path is empty")
+            continue
+
+        if position not in LAYOUT_MAP:
+            print(f"Skipping unknown position: {position}")
+            continue
+
+        img_path = _resolve_image_path(raw_image_path)
+        print(f"Trying path for {position}: {img_path}")
+
+        if not img_path.exists():
+            print(f"Missing image: {img_path}")
+            continue
+
+        try:
+            settings = LAYOUT_MAP[position]
+            item_img = _load_item_image(img_path, settings["max_size"])
+        except Exception as e:
+            print(f"Could not open image {img_path}: {e}")
+            continue
+
+        x, y = settings["pos"]
+        canvas.paste(item_img, (x, y), item_img)
+        pasted_any = True
+
+    if not pasted_any:
+        print("No images were pasted onto the canvas.")
         return None
 
-def create_collage(outfit_df, output_filename="final_outfit.png"):
-    """
-    Creates a collage of a selected outfit based on the provided DataFrame of clothing items. 
-    Expects outfit_df to have at least: 'item_id' (e.g., 'TOP_02') and 'image_path'.
-    """
-    # Creating a blank white canvas for the collage
-    canvas = Image.new("RGBA", (800, 1200), (255, 255, 255, 255))
-    
-    for _, row in outfit_df.iterrows():
-        # Grabs just the category (prefix) of a clothing item (e.g, "TOP" from "TOP_02") to be able to determine where to place it on the canvas 
-        item_id = str(row.get('item_id', '')).upper()
-        prefix = item_id[:3] 
-        
-        # If the category is one of the following: TOP, BOT, SHO, OUT, get its layout settings
-        if prefix in LAYOUT_MAP:
-            settings = LAYOUT_MAP[prefix]
-        else:
-            # If something else, means it's likely an accessory 
-            settings = LAYOUT_MAP['ACC'] 
-            
-        img = load_and_resize(row['image_path'], settings['max_size'])
-        
-        if img:
-        
-            canvas.paste(img, settings['pos'], img)
-
-    # Saving the file  
-    canvas.save(output_filename, format="PNG")
-    print(f"Outfit collage saved as {output_filename}!")
-    return output_filename
+    output_path = Path(__file__).resolve().parent / output_filename
+    canvas.save(output_path)
+    return str(output_path)
